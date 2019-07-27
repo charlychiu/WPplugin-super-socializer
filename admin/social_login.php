@@ -144,6 +144,12 @@
 							<input id="the_champ_login_livejournal" name="the_champ_login[providers][]" type="checkbox" <?php echo isset($theChampLoginOptions['providers']) && in_array('liveJournal', $theChampLoginOptions['providers']) ? 'checked = "checked"' : '';?> value="liveJournal" />
 							<label for="the_champ_login_livejournal"><?php _e("LiveJournal", 'super-socializer'); ?></label>
 							</div>
+
+                            <div class="theChampHorizontalSharingProviderContainer">
+                            <input id="the_champ_login_line" name="the_champ_login[providers][]" type="checkbox" <?php echo isset($theChampLoginOptions['providers']) && in_array('line', $theChampLoginOptions['providers']) ? 'checked = "checked"' : '';?> value="line" />
+                            <label for="the_champ_login_line"><?php _e("Line", 'super-socializer'); ?></label>
+                            </div>
+
 							</td>
 						</tr>
 						
@@ -512,6 +518,51 @@
 							</div>
 							</td>
 						</tr>
+
+                        <tr>
+                            <th>
+                                <img id="the_champ_sl_line_id_help" class="the_champ_help_bubble" src="<?php echo plugins_url('../images/info.png', __FILE__) ?>" />
+                                <label for="the_champ_sl_line_id"><?php _e("Line Client ID", 'super-socializer'); ?></label>
+                            </th>
+                            <td>
+                                <input id="the_champ_sl_line_id" name="the_champ_login[line_client_id]" type="text" value="<?php echo isset($theChampLoginOptions['line_client_id']) ? $theChampLoginOptions['line_client_id'] : '' ?>" />
+                            </td>
+                        </tr>
+
+                        <tr class="the_champ_help_content" id="the_champ_sl_line_id_help_cont">
+                            <td colspan="2">
+                                <div>
+									<?php echo sprintf(__('Required for Line Social Login to work. Please follow the documentation at <a href="%s" target="_blank">this link</a> to get it', 'super-socializer'), '#') ?>
+                                    <br/>
+                                    <span style="color: #14ACDF"><?php _e('Paste following url in <strong>Redirect URI</strong> option mentioned at the link', 'super-socializer'); ?></span>
+                                    <br/>
+                                    <strong style="color: #14ACDF"><?php echo esc_url(home_url()) . '/?SuperSocializerAuth=Line'; ?></strong>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th>
+                                <img id="the_champ_sl_line_secret_help" class="the_champ_help_bubble" src="<?php echo plugins_url('../images/info.png', __FILE__) ?>" />
+                                <label for="the_champ_sl_line_secret"><?php _e("Line Client Secret", 'super-socializer'); ?></label>
+                            </th>
+                            <td>
+                                <input id="the_champ_sl_line_secret" name="the_champ_login[line_client_secret]" type="text" value="<?php echo isset($theChampLoginOptions['line_client_secret']) ? $theChampLoginOptions['line_client_secret'] : '' ?>" />
+                            </td>
+                        </tr>
+
+                        <tr class="the_champ_help_content" id="the_champ_sl_line_secret_help_cont">
+                            <td colspan="2">
+                                <div>
+									<?php echo sprintf(__('Required for Line Social Login to work. Please follow the documentation at <a href="%s" target="_blank">this link</a> to get it', 'super-socializer'), '#') ?>
+                                    <br/>
+                                    <span style="color: #14ACDF"><?php _e('Paste following url in <strong>Redirect URI</strong> option mentioned at the link', 'super-socializer'); ?></span>
+                                    <br/>
+                                    <strong style="color: #14ACDF"><?php echo esc_url(home_url()) . '/?SuperSocializerAuth=Line'; ?></strong>
+                                </div>
+                            </td>
+                        </tr>
+
 					</table>
 					</div>
 				</div>
