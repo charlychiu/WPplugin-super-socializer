@@ -1,26 +1,586 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="e4dfb327-ad5c-47bf-9a97-0f2b238c32f0" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/library/Line/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/helper.php" beforeDir="false" afterPath="$PROJECT_DIR$/helper.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/front/combined.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/front/combined.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/front/social_login/common.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/front/social_login/common.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/front/social_login/general.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/front/social_login/general.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/front/social_login/instagram.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/front/social_login/instagram.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/front/social_login/linking.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/front/social_login/linking.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/super_socializer.php" beforeDir="false" afterPath="$PROJECT_DIR$/super_socializer.php" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution>
+      <executable />
+    </execution>
+  </component>
   <component name="FileColors">
     <fileColor scope="Non-Project Files (Material Oceanic)" color="2E3C43" />
     <fileColor scope="Non-Project Files (Material Darker)" color="323232" />
     <fileColor scope="Non-Project Files (Material Lighter)" color="eae8e8" />
     <fileColor scope="Non-Project Files (Material Palenight)" color="2f2e43" />
   </component>
-  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds">
-    <option name="y" value="23" />
+  <component name="FileEditorManager">
+    <leaf>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/super_socializer.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="265">
+              <caret line="581" column="43" lean-forward="true" selection-start-line="581" selection-start-column="43" selection-end-line="581" selection-end-column="43" />
+              <folding>
+                <element signature="e#2601#2768#0#PHP" />
+                <element signature="e#8137#10437#0#PHP" />
+                <element signature="e#10465#13487#0#PHP" />
+                <element signature="e#10789#13484#0#PHP" />
+                <element signature="e#21697#24126#0#PHP" />
+                <element signature="e#24128#28069#0#PHP" />
+                <element signature="e#28071#30190#0#PHP" />
+                <element signature="e#30192#31878#0#PHP" />
+                <element signature="n#style#0;n#a#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>theChampFacebookAuthUrl</find>
+      <find>theChampVkontakteAuthUrl</find>
+      <find>theChampTwitchAuthUrl</find>
+      <find>theChampXingAuthUrl</find>
+      <find>xing_ck</find>
+      <find>$theChampLoginOptions['providers']</find>
+      <find>the_champ_connect</find>
+      <find>theChampInitializeInstaLogin</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/js/admin/admin.js" />
+        <option value="$PROJECT_DIR$/admin/social_login.php" />
+        <option value="$PROJECT_DIR$/js/front/combined.js" />
+        <option value="$PROJECT_DIR$/helper.php" />
+        <option value="$PROJECT_DIR$/js/front/social_login/common.js" />
+        <option value="$PROJECT_DIR$/js/front/social_login/general.js" />
+        <option value="$PROJECT_DIR$/js/front/social_login/linking.js" />
+        <option value="$PROJECT_DIR$/js/front/social_login/instagram.js" />
+        <option value="$PROJECT_DIR$/super_socializer.php" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" fullScreen="true">
     <option name="width" value="1440" />
-    <option name="height" value="877" />
+    <option name="height" value="900" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="super-socializer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wordpress" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="super-socializer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wordpress" type="462c0819:PsiDirectoryNode" />
+              <item name="wp-content" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="super-socializer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wordpress" type="462c0819:PsiDirectoryNode" />
+              <item name="wp-content" type="462c0819:PsiDirectoryNode" />
+              <item name="plugins" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="super-socializer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wordpress" type="462c0819:PsiDirectoryNode" />
+              <item name="wp-content" type="462c0819:PsiDirectoryNode" />
+              <item name="plugins" type="462c0819:PsiDirectoryNode" />
+              <item name="super-socializer" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="super-socializer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wordpress" type="462c0819:PsiDirectoryNode" />
+              <item name="wp-content" type="462c0819:PsiDirectoryNode" />
+              <item name="plugins" type="462c0819:PsiDirectoryNode" />
+              <item name="super-socializer" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="super-socializer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wordpress" type="462c0819:PsiDirectoryNode" />
+              <item name="wp-content" type="462c0819:PsiDirectoryNode" />
+              <item name="plugins" type="462c0819:PsiDirectoryNode" />
+              <item name="super-socializer" type="462c0819:PsiDirectoryNode" />
+              <item name="inc" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="super-socializer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wordpress" type="462c0819:PsiDirectoryNode" />
+              <item name="wp-content" type="462c0819:PsiDirectoryNode" />
+              <item name="plugins" type="462c0819:PsiDirectoryNode" />
+              <item name="super-socializer" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="super-socializer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wordpress" type="462c0819:PsiDirectoryNode" />
+              <item name="wp-content" type="462c0819:PsiDirectoryNode" />
+              <item name="plugins" type="462c0819:PsiDirectoryNode" />
+              <item name="super-socializer" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="super-socializer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wordpress" type="462c0819:PsiDirectoryNode" />
+              <item name="wp-content" type="462c0819:PsiDirectoryNode" />
+              <item name="plugins" type="462c0819:PsiDirectoryNode" />
+              <item name="super-socializer" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="front" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="super-socializer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wordpress" type="462c0819:PsiDirectoryNode" />
+              <item name="wp-content" type="462c0819:PsiDirectoryNode" />
+              <item name="plugins" type="462c0819:PsiDirectoryNode" />
+              <item name="super-socializer" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="front" type="462c0819:PsiDirectoryNode" />
+              <item name="social_login" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="super-socializer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wordpress" type="462c0819:PsiDirectoryNode" />
+              <item name="wp-content" type="462c0819:PsiDirectoryNode" />
+              <item name="plugins" type="462c0819:PsiDirectoryNode" />
+              <item name="super-socializer" type="462c0819:PsiDirectoryNode" />
+              <item name="library" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="super-socializer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wordpress" type="462c0819:PsiDirectoryNode" />
+              <item name="wp-content" type="462c0819:PsiDirectoryNode" />
+              <item name="plugins" type="462c0819:PsiDirectoryNode" />
+              <item name="super-socializer" type="462c0819:PsiDirectoryNode" />
+              <item name="library" type="462c0819:PsiDirectoryNode" />
+              <item name="LiveJournalLogin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="super-socializer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wordpress" type="462c0819:PsiDirectoryNode" />
+              <item name="wp-content" type="462c0819:PsiDirectoryNode" />
+              <item name="plugins" type="462c0819:PsiDirectoryNode" />
+              <item name="super-socializer" type="462c0819:PsiDirectoryNode" />
+              <item name="library" type="462c0819:PsiDirectoryNode" />
+              <item name="SteamLogin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="super-socializer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wordpress" type="462c0819:PsiDirectoryNode" />
+              <item name="wp-content" type="462c0819:PsiDirectoryNode" />
+              <item name="plugins" type="462c0819:PsiDirectoryNode" />
+              <item name="super-socializer" type="462c0819:PsiDirectoryNode" />
+              <item name="library" type="462c0819:PsiDirectoryNode" />
+              <item name="Twitch" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/library/Line" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
   </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/library/Line" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e4dfb327-ad5c-47bf-9a97-0f2b238c32f0" name="Default Changelist" comment="" />
+      <created>1564132623458</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1564132623458</updated>
+      <workItem from="1564132624995" duration="14865000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="14865000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Favorites" side_tool="true" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.19098713" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" weight="0.32899868" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Database" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WordPressConfiguration" enabled="true">
+    <wordpressPath>$PROJECT_DIR$/../../..</wordpressPath>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/library/SteamLogin/index.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/library/SteamLogin/SteamLogin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="22" column="9" lean-forward="true" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/index.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/login/login.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inc/index.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inc/shortcode.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1343">
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/readme.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2217" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/library/oauth_client.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="100" column="6" selection-start-line="100" selection-start-column="6" selection-end-line="100" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/library/oauth_configuration.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-5216" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/index.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/front.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="5014" selection-start-column="5014" selection-end-column="5014" />
+          <folding>
+            <element signature="e#5048#5611#1" expanded="true" />
+            <element signature="e#5691#5994#1" expanded="true" />
+            <element signature="e#6076#7167#1" expanded="true" />
+            <element signature="e#7251#7842#1" expanded="true" />
+            <element signature="e#7925#8884#1" expanded="true" />
+            <element signature="e#8969#10160#1" expanded="true" />
+            <element signature="e#10277#10718#1" expanded="true" />
+            <element signature="e#10805#11612#1" expanded="true" />
+            <element signature="e#11662#12722#1" expanded="true" />
+            <element signature="e#12807#13984#1" expanded="true" />
+            <element signature="e#21989#22453#1" expanded="true" />
+            <element signature="e#22508#23057#1" expanded="true" />
+            <element signature="e#23114#23555#1" expanded="true" />
+            <element signature="e#23608#24306#1" expanded="true" />
+            <element signature="e#24360#24774#1" expanded="true" />
+            <element signature="e#24830#26149#1" expanded="true" />
+            <element signature="e#26204#26663#1" expanded="true" />
+            <element signature="e#26711#27303#1" expanded="true" />
+            <element signature="e#27358#27944#1" expanded="true" />
+            <element signature="e#28006#28997#1" expanded="true" />
+            <element signature="e#29050#29521#1" expanded="true" />
+            <element signature="e#29570#30569#1" expanded="true" />
+            <element signature="e#30623#31186#1" expanded="true" />
+            <element signature="e#31232#31999#1" expanded="true" />
+            <element signature="e#32045#32352#1" expanded="true" />
+            <element signature="e#32399#32882#1" expanded="true" />
+            <element signature="e#32931#33286#1" expanded="true" />
+            <element signature="e#33330#33637#1" expanded="true" />
+            <element signature="e#33685#34300#1" expanded="true" />
+            <element signature="e#34459#34891#1" expanded="true" />
+            <element signature="e#34935#35368#1" expanded="true" />
+            <element signature="e#41101#42094#1" expanded="true" />
+            <element signature="e#42149#42482#1" expanded="true" />
+            <element signature="e#42541#43360#1" expanded="true" />
+            <element signature="e#43415#44449#1" expanded="true" />
+            <element signature="e#44506#46157#1" expanded="true" />
+            <element signature="e#46212#46733#1" expanded="true" />
+            <element signature="e#46787#47635#1" expanded="true" />
+            <element signature="e#47687#48256#1" expanded="true" />
+            <element signature="e#48309#49747#1" expanded="true" />
+            <element signature="e#49803#50520#1" expanded="true" />
+            <element signature="e#50577#51068#1" expanded="true" />
+            <element signature="e#51126#52257#1" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/library/Twitch/index.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/library/index.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/library/http.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-22889">
+          <caret line="18" column="6" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/library/oauth.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1503" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/library/LiveJournalLogin/class.openid.v3.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3251">
+          <caret line="10" column="10" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/helper.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-96">
+          <caret line="667" column="41" selection-start-line="667" selection-start-column="20" selection-end-line="667" selection-end-column="41" />
+          <folding>
+            <element signature="n#style#0;n#p#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/front/combined.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="259">
+          <caret line="113" column="664" selection-start-line="113" selection-start-column="664" selection-end-line="113" selection-end-column="664" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#form#0;n#fieldset#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#form#0;n#fieldset#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#13610#19870#0" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#89#93#0" expanded="true" />
+            <element signature="n#style#0;n#h3#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#20627#44954#0" />
+            <element signature="n#style#0;n#i#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#ss#0;n#i#0;n#!!top" expanded="true" />
+            <element signature="e#45580#45863#0" />
+            <element signature="e#45971#49925#0" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="e#50333#55205#0" />
+            <element signature="e#55259#55568#0" />
+            <element signature="e#56611#59498#0" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#59579#60962#0" />
+            <element signature="e#61085#61425#0" />
+            <element signature="e#61488#62281#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/library/Twitch/twitch.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="632" lean-forward="true" selection-start-line="632" selection-end-line="632" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/front/index.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/index.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/like_buttons.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1903">
+          <caret line="182" column="93" selection-start-line="182" selection-start-column="70" selection-end-line="182" selection-end-column="93" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/social_commenting.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-5583" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inc/social_login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-11516">
+          <caret line="24" column="35" selection-start-line="24" selection-start-column="35" selection-end-line="24" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/general_options.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-129" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/help.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1078" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/social_login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="549" column="109" selection-start-line="549" selection-start-column="91" selection-end-line="549" selection-end-column="109" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/front/social_login/general.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-686">
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#form#0;n#fieldset#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#form#0;n#fieldset#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/front/social_login/index.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/front/social_login/linking.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="1" lean-forward="true" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/front/social_login/instagram.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="182" selection-start-line="22" selection-start-column="182" selection-end-line="22" selection-end-column="182" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/admin/fb_sdk.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/admin/admin.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/front/social_login/common.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="771" selection-start-line="16" selection-start-column="743" selection-end-line="16" selection-end-column="771" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/library/LiveJournalLogin/index.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uninstall.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/super_socializer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="265">
+          <caret line="581" column="43" lean-forward="true" selection-start-line="581" selection-start-column="43" selection-end-line="581" selection-end-column="43" />
+          <folding>
+            <element signature="e#2601#2768#0#PHP" />
+            <element signature="e#8137#10437#0#PHP" />
+            <element signature="e#10465#13487#0#PHP" />
+            <element signature="e#10789#13484#0#PHP" />
+            <element signature="e#21697#24126#0#PHP" />
+            <element signature="e#24128#28069#0#PHP" />
+            <element signature="e#28071#30190#0#PHP" />
+            <element signature="e#30192#31878#0#PHP" />
+            <element signature="n#style#0;n#a#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
   </component>
 </project>
