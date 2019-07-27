@@ -565,8 +565,6 @@ function the_champ_connect() {
     // Line
 	// receive GET parameter
 	if ( isset( $_GET['SuperSocializerAuth'] ) && sanitize_text_field( $_GET['SuperSocializerAuth'] ) == 'Line' ) {
-		printf("test");
-//        the_champ_close_login_popup( 'https://google.com.tw' );
 		if ( function_exists( 'session_start' ) ) {
 			session_start();
 		}
@@ -578,33 +576,65 @@ function the_champ_connect() {
 				wp_redirect( 'https://access.line.me/oauth2/v2.1/authorize?response_type=code&client_id=' . $theChampLoginOptions['line_client_id'] . '&redirect_uri=' . urlencode( home_url() . '/?SuperSocializerAuth=Line' ) . '&state=' . $lineAuthState . '&scope=' . $lineScope );
 				die;
 			}
-//			$redirection = isset( $_GET['super_socializer_redirect_to'] ) && heateor_ss_validate_url( $_GET['super_socializer_redirect_to'] ) !== false ? esc_url( $_GET['super_socializer_redirect_to'] ) : '';
-//			$lineAuthUrl = 'https://access.line.me/oauth2/v2.1/authorize?response_type=code&client_id=' . $theChampLoginOptions['line_client_id'] . '&redirect_uri=' . $redirection . '&state=wordpressAuth&scope=openid%20profile';
-//			$response     = wp_remote_get( $lineAuthUrl, array( 'timeout' => 15 ) );
-//			if ( ! is_wp_error( $response ) && isset( $response['response']['code'] ) && 200 === $response['response']['code'] ) {
-//				$body = json_decode( wp_remote_retrieve_body( $response ) );
-//				printf($body);
-//				if ( is_object( $body->data ) && isset( $body->data ) && isset( $body->data->id ) ) {
-//					$redirection = isset( $_GET['super_socializer_redirect_to'] ) && heateor_ss_validate_url( $_GET['super_socializer_redirect_to'] ) !== false ? esc_url( $_GET['super_socializer_redirect_to'] ) : '';
-//					$profileData = the_champ_sanitize_profile_data( $body->data, 'instagram' );
-//					if ( strpos( $redirection, 'heateorMSEnabled' ) !== false ) {
-//						$profileData['mc_subscribe'] = 1;
-//					}
-//					$response = the_champ_user_auth( $profileData, 'instagram', $redirection );
-//					if ( is_array( $response ) && isset( $response['message'] ) && $response['message'] == 'register' && ( ! isset( $response['url'] ) || $response['url'] == '' ) ) {
-//						$redirectTo = the_champ_get_login_redirection_url( $redirection, true );
-//					} elseif ( isset( $response['message'] ) && $response['message'] == 'linked' ) {
-//						$redirectTo = $redirection . ( strpos( $redirection, '?' ) !== false ? '&' : '?' ) . 'linked=1';
-//					} elseif ( isset( $response['message'] ) && $response['message'] == 'not linked' ) {
-//						$redirectTo = $redirection . ( strpos( $redirection, '?' ) !== false ? '&' : '?' ) . 'linked=0';
-//					} elseif ( isset( $response['url'] ) && $response['url'] != '' ) {
-//						$redirectTo = $response['url'];
-//					} else {
-//						$redirectTo = the_champ_get_login_redirection_url( $redirection );
-//					}
-//					the_champ_close_login_popup( $redirectTo );
-//				}
-//			}
+			if ( isset( $_GET['code'] ) && isset( $_GET['state'] ) && ( $lineRedirectUrl = get_user_meta( esc_attr( trim( $_GET['state'] ) ), 'heateor_ss_line_auth_state', true ) ) ) {
+				delete_user_meta( esc_attr( trim( $_GET['state'] ) ), 'heateor_ss_line_auth_state' );
+				$url               = 'https://api.line.me/oauth2/v2.1/token';
+				$data_access_token = array(
+					'grant_type'    => 'authorization_code',
+					'code'          => esc_attr( trim( $_GET['code'] ) ),
+					'redirect_uri'  => home_url() . '/?SuperSocializerAuth=Line',
+					'client_id'     => $theChampLoginOptions['line_client_id'],
+					'client_secret' => $theChampLoginOptions['line_client_secret']
+				);
+				$response          = wp_remote_post( $url, array(
+						'method'      => 'POST',
+						'timeout'     => 15,
+						'redirection' => 5,
+						'httpversion' => '1.0',
+						'sslverify'   => false,
+						'headers'     => array( 'Content-Type' => 'application/x-www-form-urlencoded' ),
+						'body'        => http_build_query( $data_access_token )
+					)
+				);
+				if ( ! is_wp_error( $response ) && isset( $response['response']['code'] ) && 200 === $response['response']['code'] ) {
+					$body = json_decode( wp_remote_retrieve_body( $response ) );
+					if ( is_object( $body ) && isset( $body->id_token ) ) {
+						// fetch data from id_token which encoding using jWT
+                        $token = $body->id_token;
+						//print_r(json_decode(base64_decode(str_replace('_', '/', str_replace('-','+',explode('.', $token)[1])))));
+                        $jwt_data = json_decode(base64_decode(str_replace('_', '/', str_replace('-','+',explode('.', $token)[1]))));
+                        $userName = $jwt_data->name;
+                        $smallAvatar = $jwt_data->picture . '/small';
+						$largeAvatar = $jwt_data->picture . '/large';
+                        $userEmail = $jwt_data->email;
+                        $userId = $jwt_data->sub;
+						$user              = array(
+							'userName'   => $userName,
+							'email'       => $userEmail,
+							'id'          => $userId,
+							'smallAvatar' => $smallAvatar,
+							'largeAvatar' => $largeAvatar
+						);
+
+						$profileData = the_champ_sanitize_profile_data( $user, 'line' );
+						$response = the_champ_user_auth( $profileData, 'line', $lineRedirectUrl );
+						if ( is_array( $response ) && isset( $response['message'] ) && $response['message'] == 'register' && ( ! isset( $response['url'] ) || $response['url'] == '' ) ) {
+							$redirectTo = the_champ_get_login_redirection_url( $lineRedirectUrl, true );
+						} elseif ( isset( $response['message'] ) && $response['message'] == 'linked' ) {
+							$redirectTo = $lineRedirectUrl . ( strpos( $lineRedirectUrl, '?' ) !== false ? '&' : '?' ) . 'linked=1';
+						} elseif ( isset( $response['message'] ) && $response['message'] == 'not linked' ) {
+							$redirectTo = $lineRedirectUrl . ( strpos( $lineRedirectUrl, '?' ) !== false ? '&' : '?' ) . 'linked=0';
+						} elseif ( isset( $response['url'] ) && $response['url'] != '' ) {
+							$redirectTo = $response['url'];
+						} else {
+							$redirectTo = the_champ_get_login_redirection_url( $lineRedirectUrl );
+						}
+						the_champ_close_login_popup( $redirectTo );
+						
+					}
+				}
+			}
+
         }
 
 	}

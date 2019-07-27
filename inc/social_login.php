@@ -512,6 +512,17 @@ function the_champ_sanitize_profile_data($profileData, $provider){
 		$temp['last_name'] = $profileData['last_name'];
 		$temp['id'] = isset($profileData['username']) ? sanitize_text_field($profileData['username']) . '-lj' : '';
 		$temp['large_avatar'] = '';
+	}elseif($provider == 'line'){
+		$temp['id'] = isset($profileData['id']) ? sanitize_text_field($profileData['id']) : '';
+		$temp['email'] = isset($profileData['email']) ? sanitize_email($profileData['email']) : '';
+		$temp['name'] = '';
+		$temp['username'] = isset($profileData['userName']) ? $profileData['userName'] : '';
+		$temp['first_name'] = '';
+		$temp['last_name'] = '';
+		$temp['bio'] = '';
+		$temp['link'] = '';
+		$temp['avatar'] = isset($profileData['smallAvatar']) && heateor_ss_validate_url($profileData['smallAvatar']) !== false ? trim($profileData['smallAvatar']) : '';
+		$temp['large_avatar'] = isset($profileData['largeAvatar']) && heateor_ss_validate_url($profileData['largeAvatar']) !== false ? trim($profileData['largeAvatar']) : '';
 	}
 	if($provider != 'steam' && $provider != 'liveJournal'){
 		$temp['avatar'] = str_replace( 'http://', '//', $temp['avatar'] );
