@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e4dfb327-ad5c-47bf-9a97-0f2b238c32f0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/inc/social_login.php" beforeDir="false" afterPath="$PROJECT_DIR$/inc/social_login.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/super_socializer.php" beforeDir="false" afterPath="$PROJECT_DIR$/super_socializer.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -27,17 +26,20 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/super_socializer.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="419">
-              <caret line="632" column="24" selection-start-line="632" selection-start-column="24" selection-end-line="632" selection-end-column="24" />
+            <state relative-caret-position="430">
+              <caret line="601" column="16" lean-forward="true" selection-start-line="601" selection-start-column="16" selection-end-line="601" selection-end-column="16" />
               <folding>
                 <element signature="e#2601#2768#0#PHP" />
                 <element signature="e#8137#10437#0#PHP" />
                 <element signature="e#10465#13487#0#PHP" />
                 <element signature="e#10789#13484#0#PHP" />
+                <element signature="e#13489#21695#0#PHP" />
                 <element signature="e#21697#24126#0#PHP" />
                 <element signature="e#24128#28069#0#PHP" />
                 <element signature="e#28071#30190#0#PHP" />
-                <element signature="e#30192#31878#0#PHP" />
+                <element signature="e#31249#31816#0#PHP" />
+                <element signature="e#35088#35124#0#HTML" expanded="true" />
+                <element signature="e#36478#36514#0#HTML" expanded="true" />
                 <element signature="n#style#0;n#a#0;n#!!top" expanded="true" />
               </folding>
             </state>
@@ -246,12 +248,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1564132623458</updated>
-      <workItem from="1564132624995" duration="17591000" />
+      <workItem from="1564132624995" duration="18793000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17591000" />
+    <option name="totallyTimeSpent" value="18793000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -570,17 +572,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/super_socializer.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="419">
-          <caret line="632" column="24" selection-start-line="632" selection-start-column="24" selection-end-line="632" selection-end-column="24" />
+        <state relative-caret-position="430">
+          <caret line="601" column="16" lean-forward="true" selection-start-line="601" selection-start-column="16" selection-end-line="601" selection-end-column="16" />
           <folding>
             <element signature="e#2601#2768#0#PHP" />
             <element signature="e#8137#10437#0#PHP" />
             <element signature="e#10465#13487#0#PHP" />
             <element signature="e#10789#13484#0#PHP" />
+            <element signature="e#13489#21695#0#PHP" />
             <element signature="e#21697#24126#0#PHP" />
             <element signature="e#24128#28069#0#PHP" />
             <element signature="e#28071#30190#0#PHP" />
-            <element signature="e#30192#31878#0#PHP" />
+            <element signature="e#31249#31816#0#PHP" />
+            <element signature="e#35088#35124#0#HTML" expanded="true" />
+            <element signature="e#36478#36514#0#HTML" expanded="true" />
             <element signature="n#style#0;n#a#0;n#!!top" expanded="true" />
           </folding>
         </state>

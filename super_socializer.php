@@ -530,36 +530,6 @@ function the_champ_connect() {
 			}
 		}
 	}
-	if ( isset( $_GET['code'] ) && isset( $_GET['state'] ) ) {
-		//Authenticate code from Google OAuth Flow
-		if ( is_object( $googleClient ) ) {
-			$googleClient->authenticate( $_GET['code'] );
-			$accessTokenStr = $googleClient->getAccessToken();
-			if ( $accessTokenStr ) {
-				$userData = $objOAuthService->userinfo->get();
-				if ( is_object( $userData ) && isset( $userData->id ) ) {
-					$profileData = the_champ_sanitize_profile_data( $userData, 'google' );
-					if ( isset( $_GET['heateorMSEnabled'] ) ) {
-						$profileData['mc_subscribe'] = 1;
-					}
-					$googleRedirectUrl = isset( $_GET['state'] ) ? esc_url( trim( $_GET['state'] ) ) : home_url();
-					$response          = the_champ_user_auth( $profileData, 'google', $googleRedirectUrl );
-					if ( is_array( $response ) && isset( $response['message'] ) && $response['message'] == 'register' && ( ! isset( $response['url'] ) || $response['url'] == '' ) ) {
-						$redirectTo = the_champ_get_login_redirection_url( $googleRedirectUrl, true );
-					} elseif ( isset( $response['message'] ) && $response['message'] == 'linked' ) {
-						$redirectTo = $googleRedirectUrl . ( strpos( $googleRedirectUrl, '?' ) !== false ? '&' : '?' ) . 'linked=1';
-					} elseif ( isset( $response['message'] ) && $response['message'] == 'not linked' ) {
-						$redirectTo = $googleRedirectUrl . ( strpos( $googleRedirectUrl, '?' ) !== false ? '&' : '?' ) . 'linked=0';
-					} elseif ( isset( $response['url'] ) && $response['url'] != '' ) {
-						$redirectTo = $response['url'];
-					} else {
-						$redirectTo = the_champ_get_login_redirection_url( $googleRedirectUrl );
-					}
-					the_champ_close_login_popup( $redirectTo );
-				}
-			}
-		}
-	}
 
 	// charlychiu
     // Line
@@ -573,68 +543,9 @@ function the_champ_connect() {
 				$lineAuthState = mt_rand();
 				update_user_meta( $lineAuthState, 'heateor_ss_line_auth_state', isset( $_GET['super_socializer_redirect_to'] ) ? esc_url( trim( $_GET['super_socializer_redirect_to'] ) ) : home_url() );
 				$lineScope = 'openid%20profile%20email';
-				wp_redirect( 'https://access.line.me/oauth2/v2.1/authorize?response_type=code&client_id=' . $theChampLoginOptions['line_client_id'] . '&redirect_uri=' . urlencode( home_url() . '/?SuperSocializerAuth=Line' ) . '&state=' . $lineAuthState . '&scope=' . $lineScope );
+				wp_redirect( 'https://access.line.me/oauth2/v2.1/authorize/?response_type=code&client_id=' . $theChampLoginOptions['line_client_id'] . '&redirect_uri=' . home_url() . '&state=' . $lineAuthState . '&scope=' . $lineScope );
 				die;
 			}
-			if ( isset( $_GET['code'] ) && isset( $_GET['state'] ) && ( $lineRedirectUrl = get_user_meta( esc_attr( trim( $_GET['state'] ) ), 'heateor_ss_line_auth_state', true ) ) ) {
-				delete_user_meta( esc_attr( trim( $_GET['state'] ) ), 'heateor_ss_line_auth_state' );
-				$url               = 'https://api.line.me/oauth2/v2.1/token';
-				$data_access_token = array(
-					'grant_type'    => 'authorization_code',
-					'code'          => esc_attr( trim( $_GET['code'] ) ),
-					'redirect_uri'  => home_url() . '/?SuperSocializerAuth=Line',
-					'client_id'     => $theChampLoginOptions['line_client_id'],
-					'client_secret' => $theChampLoginOptions['line_client_secret']
-				);
-				$response          = wp_remote_post( $url, array(
-						'method'      => 'POST',
-						'timeout'     => 15,
-						'redirection' => 5,
-						'httpversion' => '1.0',
-						'sslverify'   => false,
-						'headers'     => array( 'Content-Type' => 'application/x-www-form-urlencoded' ),
-						'body'        => http_build_query( $data_access_token )
-					)
-				);
-				if ( ! is_wp_error( $response ) && isset( $response['response']['code'] ) && 200 === $response['response']['code'] ) {
-					$body = json_decode( wp_remote_retrieve_body( $response ) );
-					if ( is_object( $body ) && isset( $body->id_token ) ) {
-						// fetch data from id_token which encoding using jWT
-                        $token = $body->id_token;
-						//print_r(json_decode(base64_decode(str_replace('_', '/', str_replace('-','+',explode('.', $token)[1])))));
-                        $jwt_data = json_decode(base64_decode(str_replace('_', '/', str_replace('-','+',explode('.', $token)[1]))));
-                        $userName = $jwt_data->name;
-                        $smallAvatar = $jwt_data->picture . '/small';
-						$largeAvatar = $jwt_data->picture . '/large';
-                        $userEmail = $jwt_data->email;
-                        $userId = $jwt_data->sub;
-						$user              = array(
-							'userName'   => $userName,
-							'email'       => $userEmail,
-							'id'          => $userId,
-							'smallAvatar' => $smallAvatar,
-							'largeAvatar' => $largeAvatar
-						);
-
-						$profileData = the_champ_sanitize_profile_data( $user, 'line' );
-						$response = the_champ_user_auth( $profileData, 'line', $lineRedirectUrl );
-						if ( is_array( $response ) && isset( $response['message'] ) && $response['message'] == 'register' && ( ! isset( $response['url'] ) || $response['url'] == '' ) ) {
-							$redirectTo = the_champ_get_login_redirection_url( $lineRedirectUrl, true );
-						} elseif ( isset( $response['message'] ) && $response['message'] == 'linked' ) {
-							$redirectTo = $lineRedirectUrl . ( strpos( $lineRedirectUrl, '?' ) !== false ? '&' : '?' ) . 'linked=1';
-						} elseif ( isset( $response['message'] ) && $response['message'] == 'not linked' ) {
-							$redirectTo = $lineRedirectUrl . ( strpos( $lineRedirectUrl, '?' ) !== false ? '&' : '?' ) . 'linked=0';
-						} elseif ( isset( $response['url'] ) && $response['url'] != '' ) {
-							$redirectTo = $response['url'];
-						} else {
-							$redirectTo = the_champ_get_login_redirection_url( $lineRedirectUrl );
-						}
-						the_champ_close_login_popup( $redirectTo );
-						
-					}
-				}
-			}
-
         }
 
 	}
@@ -795,7 +706,96 @@ function the_champ_connect() {
 		the_champ_livejournal_auth();
 	}
 
+	if ( isset( $_GET['code'] ) && isset( $_GET['state'] ) ) {
+		//Authenticate code from Google OAuth Flow
+		if ( is_object( $googleClient ) ) {
+			$googleClient->authenticate( $_GET['code'] );
+			$accessTokenStr = $googleClient->getAccessToken();
+			if ( $accessTokenStr ) {
+				$userData = $objOAuthService->userinfo->get();
+				if ( is_object( $userData ) && isset( $userData->id ) ) {
+					$profileData = the_champ_sanitize_profile_data( $userData, 'google' );
+					if ( isset( $_GET['heateorMSEnabled'] ) ) {
+						$profileData['mc_subscribe'] = 1;
+					}
+					$googleRedirectUrl = isset( $_GET['state'] ) ? esc_url( trim( $_GET['state'] ) ) : home_url();
+					$response          = the_champ_user_auth( $profileData, 'google', $googleRedirectUrl );
+					if ( is_array( $response ) && isset( $response['message'] ) && $response['message'] == 'register' && ( ! isset( $response['url'] ) || $response['url'] == '' ) ) {
+						$redirectTo = the_champ_get_login_redirection_url( $googleRedirectUrl, true );
+					} elseif ( isset( $response['message'] ) && $response['message'] == 'linked' ) {
+						$redirectTo = $googleRedirectUrl . ( strpos( $googleRedirectUrl, '?' ) !== false ? '&' : '?' ) . 'linked=1';
+					} elseif ( isset( $response['message'] ) && $response['message'] == 'not linked' ) {
+						$redirectTo = $googleRedirectUrl . ( strpos( $googleRedirectUrl, '?' ) !== false ? '&' : '?' ) . 'linked=0';
+					} elseif ( isset( $response['url'] ) && $response['url'] != '' ) {
+						$redirectTo = $response['url'];
+					} else {
+						$redirectTo = the_champ_get_login_redirection_url( $googleRedirectUrl );
+					}
+					the_champ_close_login_popup( $redirectTo );
+				}
+			}
+		}
+		
+		if ( isset( $_GET['code'] ) && isset( $_GET['state'] ) && ( $lineRedirectUrl = get_user_meta( esc_attr( trim( $_GET['state'] ) ), 'heateor_ss_line_auth_state', true ) ) ) {
+			delete_user_meta( esc_attr( trim( $_GET['state'] ) ), 'heateor_ss_line_auth_state' );
+			$url               = 'https://api.line.me/oauth2/v2.1/token';
+			$data_access_token = array(
+				'grant_type'    => 'authorization_code',
+				'code'          => esc_attr( trim( $_GET['code'] ) ),
+				'redirect_uri'  => home_url() ,
+				'client_id'     => $theChampLoginOptions['line_client_id'],
+				'client_secret' => $theChampLoginOptions['line_client_secret']
+			);
+			$response          = wp_remote_post( $url, array(
+					'method'      => 'POST',
+					'timeout'     => 15,
+					'redirection' => 5,
+					'httpversion' => '1.0',
+					'sslverify'   => false,
+					'headers'     => array( 'Content-Type' => 'application/x-www-form-urlencoded' ),
+					'body'        => http_build_query( $data_access_token )
+				)
+			);
+			if ( ! is_wp_error( $response ) && isset( $response['response']['code'] ) && 200 === $response['response']['code'] ) {
+				$body = json_decode( wp_remote_retrieve_body( $response ) );
+				if ( is_object( $body ) && isset( $body->id_token ) ) {
+					// fetch data from id_token which encoding using jWT
+					$token = $body->id_token;
+					//print_r(json_decode(base64_decode(str_replace('_', '/', str_replace('-','+',explode('.', $token)[1])))));
+					$jwt_data = json_decode(base64_decode(str_replace('_', '/', str_replace('-','+',explode('.', $token)[1]))));
+					$userName = $jwt_data->name;
+					$smallAvatar = $jwt_data->picture . '/small';
+					$largeAvatar = $jwt_data->picture . '/large';
+					$userEmail = $jwt_data->email;
+					$userId = $jwt_data->sub;
+					$user              = array(
+						'userName'   => $userName,
+						'email'       => $userEmail,
+						'id'          => $userId,
+						'smallAvatar' => $smallAvatar,
+						'largeAvatar' => $largeAvatar
+					);
 
+					$profileData = the_champ_sanitize_profile_data( $user, 'line' );
+					$response = the_champ_user_auth( $profileData, 'line', $lineRedirectUrl );
+					if ( is_array( $response ) && isset( $response['message'] ) && $response['message'] == 'register' && ( ! isset( $response['url'] ) || $response['url'] == '' ) ) {
+						$redirectTo = the_champ_get_login_redirection_url( $lineRedirectUrl, true );
+					} elseif ( isset( $response['message'] ) && $response['message'] == 'linked' ) {
+						$redirectTo = $lineRedirectUrl . ( strpos( $lineRedirectUrl, '?' ) !== false ? '&' : '?' ) . 'linked=1';
+					} elseif ( isset( $response['message'] ) && $response['message'] == 'not linked' ) {
+						$redirectTo = $lineRedirectUrl . ( strpos( $lineRedirectUrl, '?' ) !== false ? '&' : '?' ) . 'linked=0';
+					} elseif ( isset( $response['url'] ) && $response['url'] != '' ) {
+						$redirectTo = $response['url'];
+					} else {
+						$redirectTo = the_champ_get_login_redirection_url( $lineRedirectUrl );
+					}
+					the_champ_close_login_popup( $redirectTo );
+
+				}
+			}
+		}
+
+	}
 
 }
 
